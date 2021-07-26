@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { getUserById } from '../store/userReducer'
+
+import { showLoader } from '../store/dialogReducer'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Button from '@material-ui/core/Button'
@@ -13,9 +14,8 @@ const About = () => {
 	console.log( user )
 
 
-
 	const handleButtonClick = async (evt) => {
-		dispatch( getUserById(id) )
+		dispatch( showLoader() )
 	}
 
 	return (
@@ -23,7 +23,6 @@ const About = () => {
 			<h2>About page</h2>
 
 			<Button onClick={handleButtonClick} variant='outlined'color='primary'>Add User</Button>
-
 
 		</>
 	)
